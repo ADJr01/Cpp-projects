@@ -1,9 +1,5 @@
-#ifndef PRACTICE_LIST_H
-#define PRACTICE_LIST_H
-
 class ListIndexOverFlowed : public std::exception {
 };
-
 template<class T>
 class List {
     /*
@@ -39,7 +35,7 @@ public:
             Cursor->item = item;
             Cursor->next = new Node();
             Cursor = Cursor->next;
-            Cursor->next = nullptr;
+            Cursor->next = nullptr; //Every Last Node has null to its next location
             count++;
             return true;
 
@@ -91,7 +87,6 @@ public:
             return temp->item;
         } catch (ListIndexOverFlowed &e) {
             std::cerr << "List Index Out of Bound" << std::endl;
-            return NULL;
         }
     }
 
@@ -153,7 +148,6 @@ public:
             }
             return ListArray;
         }
-        return (nullptr);
     }
 
 
@@ -272,8 +266,6 @@ public:
                 return temp->Arr[toAdd];
 
             }
-        } else {
-            return '\0';
         }
     }
 
@@ -289,6 +281,3 @@ public:
 
 
 };
-
-
-#endif //PRACTICE_LIST_H
